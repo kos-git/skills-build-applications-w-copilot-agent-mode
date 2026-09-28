@@ -5,6 +5,10 @@ import { connectDatabase } from './config/database.js';
 
 const app = express();
 const port = Number(process.env.PORT) || 8000;
+const codespaceName = process.env.CODESPACE_NAME;
+const apiBaseUrl = codespaceName
+  ? `https://${codespaceName}-${port}.app.github.dev`
+  : `http://localhost:${port}`;
 
 app.use(express.json());
 
@@ -102,8 +106,8 @@ app.use((_request, response) => {
 });
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => {
-    console.log(`OctoFit Tracker API listening on port ${port}`);
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`OctoFit Tracker API available at ${apiBaseUrl}`);
   });
   connectDatabase().catch((error: unknown) => {
     console.error('Database connection unavailable:', errorMessage(error));
