@@ -8,11 +8,11 @@ import logo from '../../../docs/octofitapp-small.png'
 import './octofit.css'
 
 const navigation = [
-  { label: 'Overview', path: '/leaderboard' },
-  { label: 'Activities', path: '/activities' },
-  { label: 'Teams', path: '/teams' },
-  { label: 'Members', path: '/users' },
-  { label: 'Workouts', path: '/workouts' },
+  { label: 'Overview', path: '/api/leaderboard/' },
+  { label: 'Activities', path: '/api/activities/' },
+  { label: 'Teams', path: '/api/teams/' },
+  { label: 'Members', path: '/api/users/' },
+  { label: 'Workouts', path: '/api/workouts/' },
 ]
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     <div className="app-shell">
       <header className="app-header">
         <div className="container app-header-inner">
-          <NavLink className="brand" to="/leaderboard" aria-label="OctoFit Tracker home">
+          <NavLink className="brand" to="/api/leaderboard/" aria-label="OctoFit Tracker home">
             <img src={logo} alt="" />
             <span>OctoFit<span className="brand-accent">.</span></span>
           </NavLink>
@@ -41,13 +41,13 @@ function App() {
 
       <main className="container app-main">
         <Routes>
-          <Route path="/activities" element={<Activities />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/teams" element={<Teams />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/workouts" element={<Workouts />} />
-          <Route path="/" element={<Navigate to="/leaderboard" replace />} />
-          <Route path="*" element={<Navigate to="/leaderboard" replace />} />
+          <Route path="/api/activities/" element={<Activities />} />
+          <Route path="/api/leaderboard/" element={<Leaderboard />} />
+          <Route path="/api/teams/" element={<Teams />} />
+          <Route path="/api/users/" element={<Users />} />
+          <Route path="/api/workouts/" element={<Workouts />} />
+          <Route path="/" element={<Navigate to="/api/leaderboard/" replace />} />
+          <Route path="*" element={<Navigate to="/api/leaderboard/" replace />} />
         </Routes>
       </main>
       <footer className="app-footer">
