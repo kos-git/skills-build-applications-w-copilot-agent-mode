@@ -10,7 +10,7 @@ function displayValue(value) {
   return String(value)
 }
 
-function ResourcePage({ title, eyebrow, description, resource, columns }) {
+function ResourcePage({ title, eyebrow, description, resource, endpoint, columns }) {
   const [records, setRecords] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -22,7 +22,7 @@ function ResourcePage({ title, eyebrow, description, resource, columns }) {
       setLoading(true)
       setError('')
       try {
-        setRecords(await fetchCollection(resource, { signal: controller.signal }))
+        setRecords(await fetchCollection(endpoint, { signal: controller.signal }))
       } catch (requestError) {
         if (!controller.signal.aborted) {
           setError(requestError.message || 'Unable to load data.')
@@ -34,7 +34,7 @@ function ResourcePage({ title, eyebrow, description, resource, columns }) {
 
     loadRecords()
     return () => controller.abort()
-  }, [resource])
+  }, [endpoint])
 
   return (
     <section aria-labelledby={`${resource}-heading`}>

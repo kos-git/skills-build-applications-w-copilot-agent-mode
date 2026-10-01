@@ -14,6 +14,7 @@ function Users() {
       eyebrow="Our community"
       description="Meet the people showing up, supporting each other, and getting stronger together."
       resource="users"
+      endpoint="/api/users/"
       columns={columns}
     />
   )

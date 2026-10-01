@@ -14,6 +14,7 @@ function Leaderboard() {
       eyebrow="Friendly competition"
       description="Celebrate consistent effort and see how the community is moving this week."
       resource="leaderboard"
+      endpoint="/api/leaderboard/"
       columns={columns}
     />
   )

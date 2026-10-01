@@ -8,11 +8,11 @@ import logo from '../../../docs/octofitapp-small.png'
 import './octofit.css'
 
 const navigation = [
-  { label: 'Overview', path: '/api/leaderboard/' },
-  { label: 'Activities', path: '/api/activities/' },
-  { label: 'Teams', path: '/api/teams/' },
-  { label: 'Members', path: '/api/users/' },
-  { label: 'Workouts', path: '/api/workouts/' },
+  { label: 'Overview', path: '/leaderboard' },
+  { label: 'Activities', path: '/activities' },
+  { label: 'Teams', path: '/teams' },
+  { label: 'Members', path: '/users' },
+  { label: 'Workouts', path: '/workouts' },
 ]
 
 function App() {

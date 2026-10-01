@@ -14,6 +14,7 @@ function Teams() {
       eyebrow="Better in a pack"
       description="Find your crew, build good habits, and make every challenge a team effort."
       resource="teams"
+      endpoint="/api/teams/"
       columns={columns}
     />
   )

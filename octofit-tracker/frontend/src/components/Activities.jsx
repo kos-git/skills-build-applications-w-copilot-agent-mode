@@ -15,6 +15,7 @@ function Activities() {
       eyebrow="Keep your momentum"
       description="A running log of the work our community puts in, one session at a time."
       resource="activities"
+      endpoint="/api/activities/"
       columns={columns}
     />
   )

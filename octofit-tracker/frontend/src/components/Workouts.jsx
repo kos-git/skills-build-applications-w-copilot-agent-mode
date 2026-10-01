@@ -14,6 +14,7 @@ function Workouts() {
       eyebrow="Find your next session"
       description="Browse workout ideas and choose a session that fits your goals and energy."
       resource="workouts"
+      endpoint="/api/workouts/"
       columns={columns}
     />
   )
