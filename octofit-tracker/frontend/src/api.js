@@ -1,9 +1,3 @@
-const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
-
-export const API_ORIGIN = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev`
-  : ''
-
 export function normalizeCollection(payload) {
   if (Array.isArray(payload)) return payload
   if (Array.isArray(payload?.results)) return payload.results
@@ -14,7 +8,7 @@ export function normalizeCollection(payload) {
 }
 
 export async function fetchCollection(endpoint, { signal } = {}) {
-  const response = await fetch(`${API_ORIGIN}${endpoint}`, {
+  const response = await fetch(endpoint, {
     headers: { Accept: 'application/json' },
     signal,
   })

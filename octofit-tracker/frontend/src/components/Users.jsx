@@ -1,5 +1,10 @@
 import ResourcePage from './ResourcePage.jsx'
 
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+const endpoint = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev/api/users/`
+  : '/api/users/'
+
 const columns = [
   { label: 'Member', value: (user) => user.username ?? `${user.first_name ?? ''} ${user.last_name ?? ''}`.trim() },
   { label: 'Email', value: (user) => user.email },
@@ -14,7 +19,7 @@ function Users() {
       eyebrow="Our community"
       description="Meet the people showing up, supporting each other, and getting stronger together."
       resource="users"
-      endpoint="/api/users/"
+      endpoint={endpoint}
       columns={columns}
     />
   )
