@@ -1,0 +1,277 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.app-header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: var(--display-font);
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.brand-accent {
+  color: var(--coral);
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 4px;
+  flex: 1;
+}
+
+.app-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding: 0 13px;
+  color: var(--muted);
+  font-size: 0.91rem;
+  font-weight: 650;
+}
+
+.app-nav .nav-link:hover,
+.app-nav .nav-link.active {
+  color: var(--ink);
+}
+
+.app-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  right: 13px;
+  bottom: 0;
+  left: 13px;
+  height: 3px;
+  background: var(--coral);
+}
+
+.header-tag {
+  color: var(--green);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.app-main {
+  flex: 1;
+  padding-top: 52px;
+  padding-bottom: 64px;
+  animation: arrive 320ms ease-out both;
+}
+
+.page-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.page-eyebrow {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.page-heading h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--display-font);
+  font-size: clamp(1.9rem, 4vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.page-description {
+  max-width: 590px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.record-count {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.data-surface {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgb(24 39 37 / 4%);
+}
+
+.data-table {
+  margin: 0;
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--ink);
+}
+
+.data-table thead th {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #f4f7f4;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.data-table tbody td {
+  padding: 16px 18px;
+  border-color: #edf0ed;
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tbody tr:hover {
+  background: #fbfcfa;
+}
+
+.table-primary-cell {
+  font-weight: 700;
+}
+
+.table-muted-cell {
+  color: var(--muted) !important;
+}
+
+.empty-state,
+.loading-state {
+  padding: 52px 24px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-state strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.loading-state .spinner-border {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 10px;
+  color: var(--green);
+  vertical-align: -0.2em;
+}
+
+.app-footer {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.79rem;
+}
+
+.app-footer span {
+  padding: 0 6px;
+  color: var(--coral);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .app-header-inner {
+    flex-wrap: wrap;
+    gap: 0 16px;
+    padding-top: 10px;
+  }
+
+  .brand {
+    min-height: 52px;
+    flex: 1;
+  }
+
+  .header-tag {
+    margin-right: 2px;
+  }
+
+  .app-nav {
+    order: 1;
+    width: 100%;
+    flex-basis: 100%;
+    min-height: 48px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .app-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .app-nav .nav-link {
+    padding: 0 12px;
+    white-space: nowrap;
+  }
+
+  .app-nav .nav-link.active::after {
+    right: 12px;
+    left: 12px;
+  }
+
+  .app-main {
+    padding-top: 36px;
+    padding-bottom: 44px;
+  }
+
+  .page-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
